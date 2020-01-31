@@ -11,6 +11,7 @@ namespace Hackathon2020Team4.Data
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
+
         }
     }
 }
