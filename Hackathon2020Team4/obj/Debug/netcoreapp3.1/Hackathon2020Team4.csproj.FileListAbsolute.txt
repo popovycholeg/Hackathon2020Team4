@@ -159,3 +159,7 @@ D:\Development\Hackathon2020\Hackathon2020Team4\Hackathon2020Team4\obj\Debug\net
 D:\Development\Hackathon2020\Hackathon2020Team4\Hackathon2020Team4\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\_ViewImports.cshtml.g.cs
 D:\Development\Hackathon2020\Hackathon2020Team4\Hackathon2020Team4\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\_ValidationScriptsPartial.cshtml.g.cs
 D:\Development\Hackathon2020\Hackathon2020Team4\Hackathon2020Team4\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\_ViewImports.cshtml.g.cs
+D:\Development\Hackathon2020\Hackathon2020Team4\Hackathon2020Team4\obj\Debug\netcoreapp3.1\Razor\Views\Roles\Index.cshtml.g.cs
+D:\Development\Hackathon2020\Hackathon2020Team4\Hackathon2020Team4\obj\Debug\netcoreapp3.1\Razor\Views\Roles\Create.cshtml.g.cs
+D:\Development\Hackathon2020\Hackathon2020Team4\Hackathon2020Team4\obj\Debug\netcoreapp3.1\Razor\Views\Roles\UserList.cshtml.g.cs
+D:\Development\Hackathon2020\Hackathon2020Team4\Hackathon2020Team4\obj\Debug\netcoreapp3.1\Razor\Views\Roles\Edit.cshtml.g.cs
