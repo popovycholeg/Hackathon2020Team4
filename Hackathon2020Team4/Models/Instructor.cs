@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using Hackathon2020Team4.Data;
 
 namespace Hackathon2020Team4.Models
 {
