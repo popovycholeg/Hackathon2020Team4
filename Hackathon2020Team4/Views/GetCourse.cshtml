@@ -1,0 +1,56 @@
+﻿@model IEnumerable<Hackathon2020Team4.Models.Course>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>View</title>
+</head>
+<body>
+    <h1>GetCourses</h1>
+
+    <div class ="container">
+        <table>
+            <tread>
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.ID)</th>
+                    <th>@Html.DisplayNameFor(model => model.Title)</th>
+                    <th>@Html.DisplayNameFor(model => model.StartDate)</th>
+                    <th>@Html.DisplayNameFor(model => model.EndDate)</th>
+                </tr>
+            </tread>
+            <tbody>
+                @foreach(var item in Model)
+                {
+                <tr>
+                    <th>
+                        @item.ID
+                    </th>
+                    <th>
+                        @item.Instructor
+                    </th>
+                    <th>
+                        @item.StartDate
+                    </th>
+                    <th>
+                        @item.Title
+                    </th>
+                    <th>
+                        @item.EndDate
+                    </th>
+                    <th>
+                        @item.Modules
+                    </th>
+                </tr>
+                }
+            </tbody>
+        </table>
+
+
+    </div>
+</body>
+</html>
