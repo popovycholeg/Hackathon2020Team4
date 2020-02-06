@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Hackathon2020Team4.Models;
 using Hackathon2020Team4.ViewModels;
 using Hackathon2020Team4.Data;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Hackathon2020Team4.Controllers
 {
+    [Authorize(Roles = "admin")]
     public class RolesController : Controller
     {
         RoleManager<IdentityRole> _roleManager;

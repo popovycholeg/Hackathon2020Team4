@@ -6,7 +6,6 @@ using Microsoft.EntityFrameworkCore;
 using System.ComponentModel;
 using Hackathon2020Team4.Models;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
 
 namespace Hackathon2020Team4.Data
 {
