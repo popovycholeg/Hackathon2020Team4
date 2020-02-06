@@ -1,13 +1,19 @@
 ﻿@model IEnumerable<Hackathon2020Team4.Data.ApplicationUser>
 
-<h2>Список пользователей</h2>
+<h2>Список користувачів</h2>
 <table class="table">
+    <tr>
+        <th>Email</th>
+        <th>ПІБ</th>
+        <th>Дії</th>
+    </tr>
     @foreach (var user in Model)
     {
         <tr>
             <td>@user.Email</td>
+            <td>@user.FirstMidName @user.LastName</td>
             <td>
-                <a class="btn btn-sm btn-primary" asp-action="Edit" asp-route-userid="@user.Id">Права доступа</a>
+                <a class="btn btn-sm btn-primary" asp-action="Edit" asp-route-userid="@user.Id">Змінити права доступу</a>
             </td>
         </tr>
     }

@@ -7,11 +7,11 @@
     @if (SignInManager.IsSignedIn(User))
     {
         <li class="nav-item">
-            <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @User.Identity.Name!</a>
+            <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Вітаємо @User.Identity.Name!</a>
         </li>
         <li class="nav-item">
             <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
-                <button type="submit" class="nav-link btn btn-link text-dark">Logout</button>
+                <button type="submit" class="nav-link btn btn-link text-dark">Вийти</button>
             </form>
         </li>
     }
@@ -25,3 +25,37 @@
         </li>
     }
 </ul>
+
+@if (SignInManager.IsSignedIn(User))
+{
+    @if (User.IsInRole("admin"))
+    {
+        <ul class="navbar-nav flex-grow-1">
+            <li class="nav-item">
+                <div class="dropdown">
+                    <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Зареєструвати користувача
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Register">Зареєструвати студента</a>
+                        <a class="nav-link text-dark" href="/Identity/Account/Register">Зареєструвати викладача</a>
+                    </div>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-dark" asp-area="" asp-controller="Roles" asp-action="UserList">Список користувачів</a>
+            </li>
+        </ul>
+    }
+    @if (User.IsInRole("instructor"))
+    {
+        <ul class="navbar-nav flex-grow-1">
+        </ul>
+    }
+    @if (User.IsInRole("student"))
+    {
+        <ul class="navbar-nav flex-grow-1">
+        </ul>
+    }
+}
+
