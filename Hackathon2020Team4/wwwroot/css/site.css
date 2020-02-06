@@ -69,3 +69,41 @@ body {
   white-space: nowrap;
   line-height: 60px; /* Vertically center the text there */
 }
+
+
+
+.section-card {
+    border-radius: 10px;
+    background-color: #DCDCDC;
+    padding: 20px;
+    margin: 10px 0;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.section-content {
+    flex-direction: row;
+    display: flex;
+    justify-content: center;
+}
+
+.section-content > .card, .list-group {
+    margin: 10px;
+}
+
+.button-group {
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+}
+
+.vertical-text {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+}

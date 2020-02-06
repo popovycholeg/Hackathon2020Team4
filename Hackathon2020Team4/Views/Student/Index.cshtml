@@ -1,0 +1,67 @@
+﻿
+@{
+    ViewData["Title"] = "Кабінет Студента";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Ласкаво просимо (students name)!</h1>
+    <h3 class="">Кабінет студента</h3>
+</div>
+
+<div class="section-card">
+    <div class="section-title">
+        <h2 class="display-4">Навчальні курси</h2>
+    </div>
+    <div class="section-content">
+        <div class="card " style="width: 18rem;">
+            <img class="card-img-top" src="https://s.dou.ua/img/announces/aspnetcore-logo-591x360.png" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">ASP.NET Core MVC</h5>
+                <p class="card-text">Найсучасніший фреймворк для розробки MVC додатків.</p>
+                <a href="/Course/1" class="btn btn-primary">Подробиці</a>
+            </div>
+        </div>
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="https://itea.ua/wp-content/uploads/2015/09/nodejs-1-min.png" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">Node.js</h5>
+                <p class="card-text">Всі фічі JS тепер і на backend!</p>
+                <a href="/Course/2" class="btn btn-primary">Подробиці</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="section-card">
+    <div class="section-title">
+        <h2 class="display-4">Розклад</h2>
+    </div>
+    <div class="section-content">
+        <div class="list-group text-center">
+            <a class="list-group-item list-group-item-action active text-white">
+                ASP.NET Core MVC
+            </a>
+            <a class="list-group-item list-group-item-action">25.01.2020 - 13:00</a>
+            <a class="list-group-item list-group-item-action">26.01.2020 - 13:00</a>
+            <a class="list-group-item list-group-item-action">27.01.2020 - 13:00</a>
+        </div>
+        <div class="list-group text-center">
+            <a class="list-group-item list-group-item-action active text-white">
+                Node.js
+            </a>
+            <a class="list-group-item list-group-item-action">05.01.2002 - 18:00</a>
+            <a class="list-group-item list-group-item-action">07.01.2002 - 18:00</a>
+        </div>
+    </div>
+</div>
+<div class="section-card">
+    <div class="section-title">
+        <h2 class="display-4">Рейтинг Студентів</h2>
+    </div>
+    <div class="section-content">
+        <div class="button-group">
+            <a href="Student/Marks" class="btn btn-primary btn-lg btn-block" role="button" aria-pressed="true">Переглянути власну успішність</a>
+            <a href="Student/Rate" class="btn btn-primary btn-lg btn-block" role="button" aria-pressed="true">Переглянути загальний рейтинг</a>
+        </div>
+    </div>
+</div>
