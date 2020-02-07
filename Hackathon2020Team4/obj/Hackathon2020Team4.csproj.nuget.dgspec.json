@@ -1,20 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Programming\\СS\\ASP.NET_Core\\Hackathon2020Team4\\Hackathon2020Team4\\Hackathon2020Team4.csproj": {}
+    "C:\\Users\\i-kom\\OneDrive\\Desktop\\Hackathon2020Team4\\Hackathon2020Team4\\Hackathon2020Team4.csproj": {}
   },
   "projects": {
-    "D:\\Programming\\СS\\ASP.NET_Core\\Hackathon2020Team4\\Hackathon2020Team4\\Hackathon2020Team4.csproj": {
+    "C:\\Users\\i-kom\\OneDrive\\Desktop\\Hackathon2020Team4\\Hackathon2020Team4\\Hackathon2020Team4.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Programming\\СS\\ASP.NET_Core\\Hackathon2020Team4\\Hackathon2020Team4\\Hackathon2020Team4.csproj",
+        "projectUniqueName": "C:\\Users\\i-kom\\OneDrive\\Desktop\\Hackathon2020Team4\\Hackathon2020Team4\\Hackathon2020Team4.csproj",
         "projectName": "Hackathon2020Team4",
-        "projectPath": "D:\\Programming\\СS\\ASP.NET_Core\\Hackathon2020Team4\\Hackathon2020Team4\\Hackathon2020Team4.csproj",
-        "packagesPath": "C:\\Users\\mi\\.nuget\\packages\\",
-        "outputPath": "D:\\Programming\\СS\\ASP.NET_Core\\Hackathon2020Team4\\Hackathon2020Team4\\obj\\",
+        "projectPath": "C:\\Users\\i-kom\\OneDrive\\Desktop\\Hackathon2020Team4\\Hackathon2020Team4\\Hackathon2020Team4.csproj",
+        "packagesPath": "C:\\Users\\i-kom\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\i-kom\\OneDrive\\Desktop\\Hackathon2020Team4\\Hackathon2020Team4\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\mi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\i-kom\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
