@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Web;
 using Hackathon2020Team4.Data;
+using System.ComponentModel.DataAnnotations;
 
 namespace Hackathon2020Team4.Models
 {
@@ -13,6 +14,10 @@ namespace Hackathon2020Team4.Models
 
         [DisplayName("Назва")]
         public string Title { get; set; }
+
+        [DisplayName("Час заняття")]
+        [DataType(DataType.DateTime)]
+        public DateTime DateTimeStart { get; set; }
 
         [DisplayName("Існує лабораторна")]
         public bool IsLabExists { get; set; }

@@ -32,12 +32,12 @@ namespace Hackathon2020Team4.Controllers
         {
             if (ModelState.IsValid)
             {
-                ApplicationUser user = new ApplicationUser { Email = model.Email, UserName = model.Email, LastName = model.LastName, FirstMidName = model.FirstMidName }; 
+                ApplicationUser user = new ApplicationUser { Email = model.Email, UserName = model.Email, LastName = model.LastName, FirstMidName = model.FirstMidName, EmailConfirmed = true }; 
                 // добавляем пользователя
                 var result = await _userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
-                    // await _userManager.AddToRoleAsync(result.Id, "unconfirmed");
+                    await _userManager.AddToRoleAsync(user, "entrant");
                     Student nSt = new Student
                     {
                         Institution = model.Institution,
@@ -51,6 +51,43 @@ namespace Hackathon2020Team4.Controllers
                     db.Students.Add(nSt);
                     db.SaveChanges();
 
+                    // установка куки
+                    await _signInManager.SignInAsync(user, false);
+                    return RedirectToAction("Index", "Home");
+                }
+                else
+                {
+                    foreach (var error in result.Errors)
+                    {
+                        ModelState.AddModelError(string.Empty, error.Description);
+                    }
+                }
+            }
+            return View(model);
+        }
+
+        [HttpGet]
+        public IActionResult RegisterInstructor()
+        {
+            return View();
+        }
+        [HttpPost]
+        public async Task<IActionResult> RegisterInstructor(TeacherRegisterViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                ApplicationUser user = new ApplicationUser { Email = model.Email, UserName = model.Email, LastName = model.LastName, FirstMidName = model.FirstMidName, EmailConfirmed = true };
+                // добавляем пользователя
+                var result = await _userManager.CreateAsync(user, model.Password);
+                if (result.Succeeded)
+                {
+                    await _userManager.AddToRoleAsync(user, "instructor");
+                    Instructor nInst = new Instructor
+                    {
+                        ApplicationUserID = user.Id
+                    };
+                    db.Instructors.Add(nInst);
+                    db.SaveChanges();
                     // установка куки
                     await _signInManager.SignInAsync(user, false);
                     return RedirectToAction("Index", "Home");

@@ -1,0 +1,56 @@
+﻿@model Hackathon2020Team4.Models.Course
+
+@{
+    ViewBag.Title = "Видалення";
+}
+
+<h2>Delete</h2>
+
+<h3>Ви впевнені, що хочете видалити цей курс?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Instructor.ApplicationUserID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Instructor.ApplicationUserID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StartDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StartDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EndDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EndDate)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Видалити" class="btn btn-primary" /> |
+            @Html.ActionLink("Назад", "Index")
+        </div>
+    }
+</div>
