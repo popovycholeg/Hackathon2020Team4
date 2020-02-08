@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+<div>
+    <table>
+        <tr>
+            <th><p>ID</p></th>
+            <th><p>Last name</p></th>
+            <th><p>First mid name</p></th>
+            <th><p>Institution</p></th>
+            <th><p>Faculty</p></th>
+            <th><p>Institution Course</p></th>
+            <th><p>Enrollment Date</p></th>
+        </tr>
+        @foreach (var st in ViewBag.Students)
+        {
+            <tr>
+                <td><p>@st.ID</p></td>
+                <td><p>@st.User.LastName</p></td>
+                <td><p>@st.User.FirstMidName</p></td>
+                <td><p>@st.Institution</p></td>
+                <td><p>@st.Faculty</p></td>
+                <td><p>@st.InstitutionCourse</p></td>
+                <td><p>@st.EnrollmentDate</p></td>
+            </tr>
+        }
+    </table>
+</div>
+

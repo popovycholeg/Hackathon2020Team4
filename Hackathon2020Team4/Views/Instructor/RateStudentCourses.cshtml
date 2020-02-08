@@ -1,0 +1,36 @@
+﻿@model IEnumerable<Course>
+@{
+    ViewData["Title"] = "RateStudentCources";
+}
+
+<h1>Courses</h1>
+<div>
+
+
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Start</th>
+            <th>End</th>
+            <th>Instructor ID</th>
+            <th>Pick</th>
+        </tr>
+        @foreach (Course course in Model)
+        {
+            <form method="get" action="RateStudentModules">
+                <tr>
+                    <th>@course.ID</th>
+                    <td>@course.Title</td>
+                    <td>@course.StartDate</td>
+                    <td>@course.EndDate</td>
+                    <td>@course.Instructor ID</td>
+                    <td><input type="submit" value="Pick up" /></td>
+                    <th><input type="hidden" value="@course.ID" name="ID" /></th>
+                </tr>
+            </form>
+        }
+    </table>
+
+</div>
+
