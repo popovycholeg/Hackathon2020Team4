@@ -56,29 +56,50 @@ namespace Hackathon2020Team4.Controllers
         }
 
         // GET: Modules/Create
-        public ActionResult Create()
+        public ActionResult Create(int? id)
         {
-            ViewBag.CourseID = new SelectList(db.Courses, "ID", "Title");
+            if (id == null)
+            {
+                return StatusCode(400);
+            }
+            ViewBag.CourseID = new SelectList(db.Courses, "ID", "Title", id);
             return View();
         }
 
         // POST: Modules/Create
-        // Чтобы защититься от атак чрезмерной передачи данных, включите определенные свойства, для которых следует установить привязку. Дополнительные 
-        // сведения см. в статье http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind("ID,Title,IsLabExists,IsTestExists,CourseID")] Module module)
+        public ActionResult Create(Module module)
         {
             if (ModelState.IsValid)
             {
-                db.Modules.Add(module);
+                Module newModule = new Module
+                {
+                    Title = module.Title,
+                    DateTimeStart = module.DateTimeStart,
+                    IsLabExists = module.IsLabExists,
+                    IsTestExists = module.IsTestExists,
+                    CourseID = module.CourseID
+                };
+
+                db.Modules.Add(newModule);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Course");
             }
 
-            ViewBag.CourseID = new SelectList(db.Courses, "ID", "Title", module.CourseID);
+            ViewBag.CourseID = new SelectList(db.Courses, "ID", "Title", new { area = module.CourseID });
             return View(module);
         }
+
+
+
+
+
+
+
+
+
+
 
         // GET: Modules/Edit/5
         public ActionResult Edit(int? id)

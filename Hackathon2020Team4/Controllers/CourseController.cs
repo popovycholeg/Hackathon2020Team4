@@ -36,7 +36,7 @@ namespace Hackathon2020Team4.Controllers
             {
                 return StatusCode(409);
             }
-            else if (roles[0] == "admin") // admin
+            else if (roles[0] == "admin" || roles[0] == "student") // admin
             {
                 var courses = db.Courses.Include(c => c.Instructor).Include(c => c.Instructor.User);
                 return View(courses.ToList());
