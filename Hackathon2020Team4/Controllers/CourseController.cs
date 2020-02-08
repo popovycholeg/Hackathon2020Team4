@@ -10,24 +10,45 @@ using Hackathon2020Team4.Models;
 using Hackathon2020Team4.Data;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 
 namespace Hackathon2020Team4.Controllers
 {
     [Authorize(Roles = "admin, instructor")]
     public class CourseController : Controller
     {
+        private readonly UserManager<ApplicationUser> _userManager;
         private ApplicationDbContext db;
 
-        public CourseController(ApplicationDbContext context)
+        public CourseController(ApplicationDbContext context, UserManager<ApplicationUser> userManager)
         {
             db = context;
+            _userManager = userManager;
         }
 
         // GET: Course
-        public ActionResult Index()
+        public async Task<ActionResult> IndexAsync()
         {
-            var courses = db.Courses.Include(c => c.Instructor).Include(c => c.Instructor.User);
-            return View(courses.ToList());
+            var user = await _userManager.GetUserAsync(HttpContext.User);
+            var roles = await _userManager.GetRolesAsync(user);
+
+            if (user == null)
+            {
+                return StatusCode(409);
+            }
+            else if (roles[0] == "admin") // admin
+            {
+                var courses = db.Courses.Include(c => c.Instructor).Include(c => c.Instructor.User);
+                return View(courses.ToList());
+            }
+            else // instructor
+            {
+                var courses = db.Courses.Include(c => c.Instructor).Include(c => c.Instructor.User).Where(c => c.Instructor.User.Id == user.Id);
+                return View(courses.ToList());
+            }
+
+
+            // return View(courses.ToList());
         }
 
         // GET: Courses/Details/5
