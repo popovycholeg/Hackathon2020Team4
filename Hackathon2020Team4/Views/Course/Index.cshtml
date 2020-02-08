@@ -12,7 +12,7 @@
 @if (User.IsInRole("admin") || User.IsInRole("instructor"))
 {
     <p>
-        @Html.ActionLink("Створити новий", "Create")
+        @Html.ActionLink("Створити новий", "Create", "Course", htmlAttributes: new { @class = "btn btn-primary" })
     </p>
 }
 <table class="table">
@@ -60,8 +60,15 @@
                 | @Html.ActionLink("Рейтинг", "Rate", new { id = item.ID })
                 @if (User.IsInRole("admin") || User.IsInRole("instructor"))
                 {
-                    @:| @Html.ActionLink("Оцінити","RateStudentModules","Instructor",new { ID = item.ID})
+                    @:| @Html.ActionLink("Оцінити", "RateStudentModules", "Instructor", new { ID = item.ID })
                 }
+
+
+                @if (User.IsInRole("student"))
+                {
+                    @:| @Html.ActionLink("Долучитися до курсу", "ToCourse", new { id = item.ID })
+                }
+
 
             </td>
         </tr>

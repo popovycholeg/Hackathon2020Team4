@@ -117,17 +117,15 @@ namespace Hackathon2020Team4.Controllers
             return View(module);
         }
         // POST: Modules/Edit/5
-        // Чтобы защититься от атак чрезмерной передачи данных, включите определенные свойства, для которых следует установить привязку. Дополнительные 
-        // сведения см. в статье http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind("ID,Title,IsLabExists,IsTestExists,CourseID")] Module module)
+        public ActionResult Edit([Bind("ID,Title,IsLabExists,IsTestExists,DateTimeStart,CourseID")] Module module)
         {
             if (ModelState.IsValid)
             {
                 db.Entry(module).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Course");
             }
             ViewBag.CourseID = new SelectList(db.Courses, "ID", "Title", module.CourseID);
             return View(module);
@@ -156,7 +154,7 @@ namespace Hackathon2020Team4.Controllers
             Module module = db.Modules.Find(id);
             db.Modules.Remove(module);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", "Course");
         }
 
         protected override void Dispose(bool disposing)
