@@ -1,0 +1,66 @@
+﻿@model Hackathon2020Team4.Models.Course
+
+@{
+    ViewData["Title"] = "Рейтинг по курсу " + Model.Title;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="text-center">
+    <h1 class="display-4">Рейтинг з курсу @Html.DisplayFor(item => Model.Title)</h1>
+</div>
+
+<div class="section-card">
+    <input type="text" id="user-name-input" placeholder="Шукати по ПІБ">
+    <table class="table table-bordered" id="student-rate-table">
+        <thead>
+            <tr>
+                <th scope="col" rowspan="2" class="vertical-text">Ім'я студенту</th>
+                @foreach (var item in Model.Modules)
+                {
+                    <th scope="col" colspan="2" class="vertical-text">@Html.DisplayFor(moduleItem => item.Title)</th>
+                }
+                <th scope="col" rowspan="2" class="vertical-text">Загальна кількість балів</th>
+            </tr>
+            <tr>
+                @foreach (var item in Model.Modules)
+                {
+                    <th scope="col">Лаб</th>
+                    <th scope="col">Тест</th>
+                }
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Enrollments)
+            {
+                <tr>
+                    <td class="font-weight-bold">@Html.DisplayFor(moduleItem => item.Student.User.LastName) @Html.DisplayFor(moduleItem => item.Student.User.FirstMidName)</td>
+                    @{ int fullRate = 0; }
+                    @foreach (var module in Model.Modules)
+                    {
+                        @*.Where(mr => mr.EnrollmentID == item.ID)*@
+                        var moduleRate = item.ModuleRating.FirstOrDefault(mr => mr.ModuleID == module.ID);
+                        @if (moduleRate != null)
+                        {
+                            <td>@Html.DisplayFor(moduleItem => moduleRate.LabRate)</td>
+                            <td>@Html.DisplayFor(moduleItem => moduleRate.TestRate)</td>
+                        }
+                        else
+                        {
+                            <td></td>
+                            <td></td>
+                        }
+                        @if (moduleRate != null && moduleRate.LabRate != null) fullRate += Convert.ToInt32(moduleRate.LabRate);
+                        @if (moduleRate != null && moduleRate.TestRate != null) fullRate += Convert.ToInt32(moduleRate.TestRate);
+                    }
+                    <td>@Html.DisplayFor(moduleItem => fullRate)</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+@section Scripts {
+    <script src="~/js/userNameFilter.js"></script>
+}

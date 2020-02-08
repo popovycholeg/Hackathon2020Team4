@@ -160,5 +160,28 @@ namespace Hackathon2020Team4.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        public ActionResult Rate(int? id)
+        {
+            if (id == null)
+            {
+                return StatusCode(400);
+            }
+            Course course = db.Courses
+                .Include(c => c.Modules)
+                .Include(c => c.Enrollments)
+                    .ThenInclude(e => e.ModuleRating)
+                .Include(c => c.Enrollments)
+                    .ThenInclude(e => e.Student)
+                        .ThenInclude(s => s.User)
+                //.Include(c => c.Enrollments.SelectMany(e => e.ModuleRating))
+                //.Include(c => c.Enrollments)
+                .FirstOrDefault(c => c.ID == id);
+            if (course == null)
+            {
+                return StatusCode(404);
+            }
+            return View(course);
+        }
     }
 }
