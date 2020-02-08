@@ -66,7 +66,7 @@
 
                 @if (User.IsInRole("student"))
                 {
-                    @:| @Html.ActionLink("Долучитися до курсу", "ToCourse", new { id = item.ID })
+                    @:| @Html.ActionLink("Долучитися до курсу", "ToCourse", new { id = item.ID }, htmlAttributes: new { @class = "forAlert" })
                 }
 
 
