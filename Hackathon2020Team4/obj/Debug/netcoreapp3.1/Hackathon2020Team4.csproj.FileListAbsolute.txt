@@ -180,3 +180,11 @@ D:\Development\Hackathon2020\Hackathon2020Team4\Hackathon2020Team4\obj\Debug\net
 D:\Development\Hackathon2020\Hackathon2020Team4\Hackathon2020Team4\obj\Debug\netcoreapp3.1\Hackathon2020Team4.csproj.CopyComplete
 D:\Development\Hackathon2020\Hackathon2020Team4\Hackathon2020Team4\obj\Debug\netcoreapp3.1\Hackathon2020Team4.dll
 D:\Development\Hackathon2020\Hackathon2020Team4\Hackathon2020Team4\obj\Debug\netcoreapp3.1\Hackathon2020Team4.pdb
+D:\Development\Hackathon2020\Hackathon2020Team4\Hackathon2020Team4\obj\Debug\netcoreapp3.1\Razor\Views\Course\JoinToCourseAsync.cshtml.g.cs
+D:\Development\Hackathon2020\Hackathon2020Team4\Hackathon2020Team4\obj\Debug\netcoreapp3.1\Razor\Views\Course\Rate.cshtml.g.cs
+D:\Development\Hackathon2020\Hackathon2020Team4\Hackathon2020Team4\obj\Debug\netcoreapp3.1\Razor\Views\Course\ToCourse.cshtml.g.cs
+D:\Development\Hackathon2020\Hackathon2020Team4\Hackathon2020Team4\obj\Debug\netcoreapp3.1\Razor\Views\Instructor\Index.cshtml.g.cs
+D:\Development\Hackathon2020\Hackathon2020Team4\Hackathon2020Team4\obj\Debug\netcoreapp3.1\Razor\Views\Instructor\Rate.cshtml.g.cs
+D:\Development\Hackathon2020\Hackathon2020Team4\Hackathon2020Team4\obj\Debug\netcoreapp3.1\Razor\Views\Instructor\RateStudent.cshtml.g.cs
+D:\Development\Hackathon2020\Hackathon2020Team4\Hackathon2020Team4\obj\Debug\netcoreapp3.1\Razor\Views\Instructor\RateStudentCourses.cshtml.g.cs
+D:\Development\Hackathon2020\Hackathon2020Team4\Hackathon2020Team4\obj\Debug\netcoreapp3.1\Razor\Views\Instructor\RateStudentModules.cshtml.g.cs
