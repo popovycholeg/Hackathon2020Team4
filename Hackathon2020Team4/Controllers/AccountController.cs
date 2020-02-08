@@ -52,7 +52,7 @@ namespace Hackathon2020Team4.Controllers
                     db.SaveChanges();
 
                     // установка куки
-                    await _signInManager.SignInAsync(user, false);
+                    // await _signInManager.SignInAsync(user, false);
                     return RedirectToAction("Index", "Home");
                 }
                 else
@@ -89,7 +89,7 @@ namespace Hackathon2020Team4.Controllers
                     db.Instructors.Add(nInst);
                     db.SaveChanges();
                     // установка куки
-                    await _signInManager.SignInAsync(user, false);
+                    // await _signInManager.SignInAsync(user, false);
                     return RedirectToAction("Index", "Home");
                 }
                 else

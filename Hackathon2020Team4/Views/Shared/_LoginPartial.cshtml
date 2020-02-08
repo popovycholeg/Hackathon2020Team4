@@ -45,11 +45,17 @@
             <li class="nav-item">
                 <a class="nav-link text-dark" asp-area="" asp-controller="Roles" asp-action="UserList">Список користувачів</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link text-dark" asp-area="" asp-controller="Course" asp-action="Index">Список курсів</a>
+            </li>
         </ul>
     }
     @if (User.IsInRole("instructor"))
     {
         <ul class="navbar-nav flex-grow-1">
+            <li class="nav-item">
+                <a class="nav-link text-dark" asp-area="" asp-controller="Course" asp-action="Index">Список курсів</a>
+            </li>
         </ul>
     }
     @if (User.IsInRole("student"))
