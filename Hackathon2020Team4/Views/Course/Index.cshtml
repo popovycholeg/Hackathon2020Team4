@@ -58,6 +58,13 @@
                     @:| @Html.ActionLink("Видалити", "Delete", new { id = item.ID })
                 }
 
+
+                @if (User.IsInRole("student") )
+                {
+                    @:| @Html.ActionLink("Долучитися до курсу", "ToCourse", new { id = item.ID })
+                }
+
+
             </td>
         </tr>
     }

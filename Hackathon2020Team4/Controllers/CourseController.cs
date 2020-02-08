@@ -160,5 +160,51 @@ namespace Hackathon2020Team4.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        //[HttpGet]
+        ////[Authorize(Roles = "student")]
+        //public async Task<ActionResult> JoinToCourseAsync(int? id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return StatusCode(400);
+        //    }
+
+        //    var user = await _userManager.GetUserAsync(HttpContext.User);
+        //    var student = db.Students.Include(s => s.User).FirstOrDefault(s => s.User.Id == user.Id);
+
+        //    Enrollment newEnr = new Enrollment
+        //    {
+        //        CourseID = Convert.ToInt32(id),
+        //        StudentID = student.ID
+        //    };
+
+
+
+        //    return RedirectToAction("Index");
+        //    return View();
+        //}
+
+        public async Task<ActionResult> ToCourse(int? id)
+        {
+            if (id == null)
+            {
+                return StatusCode(400);
+            }
+
+            var user = await _userManager.GetUserAsync(HttpContext.User);
+            var student = db.Students.Include(s => s.User).FirstOrDefault(s => s.User.Id == user.Id);
+
+            Enrollment newEnr = new Enrollment
+            {
+                CourseID = Convert.ToInt32(id),
+                StudentID = student.ID
+            };
+
+            db.Enrollments.Add(newEnr);
+            db.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
     }
 }
