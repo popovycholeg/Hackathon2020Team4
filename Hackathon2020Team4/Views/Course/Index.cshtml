@@ -58,6 +58,11 @@
                     @:| @Html.ActionLink("Видалити", "Delete", new { id = item.ID })
                 }
                 | @Html.ActionLink("Рейтинг", "Rate", new { id = item.ID })
+                @if (User.IsInRole("admin") || User.IsInRole("instructor"))
+                {
+                    @:| @Html.ActionLink("Оцінити","RateStudentModules","Instructor",new { ID = item.ID})
+                }
+
             </td>
         </tr>
     }
