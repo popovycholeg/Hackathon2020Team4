@@ -1,0 +1,27 @@
+﻿@model IEnumerable<Module>
+
+<h1>Модулі</h1>
+<div>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Назва</th>
+            <th>чиЛаба?</th>
+            <th>чиТест?</th>
+        </tr>
+        @foreach (var module in Model)
+        {
+            <form method="get" action="/Instructor/RateStudent">
+                <tr>
+                    <td>@module.ID</td>
+                    <td>@module.Title</td>
+                    <td>@module.IsLabExists</td>
+                    <td>@module.IsTestExists</td>
+                    <td><input type="submit" class="btn btn-primary" value="Вибрати" /></td>
+                    <td><input type="hidden" value="@module.ID" name="ID" /></td>
+                </tr>
+            </form>
+        }
+    </table>
+</div>
+

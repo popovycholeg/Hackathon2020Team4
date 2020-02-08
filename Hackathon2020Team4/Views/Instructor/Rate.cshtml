@@ -1,0 +1,26 @@
+﻿@model Hackathon2020Team4.ViewModels.RateViewModel
+@{
+    ViewData["Title"] = "Rate";
+}
+
+<h1>Оцінювання</h1>
+<div>
+    <form method="post" action="Rate">
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Оцінка за лаб</th>
+                <th>Оцінка за тест</th>
+            </tr>
+            <tr>
+                <td>@ViewBag.ModuleID</td>
+                <td><input type="text" name="LabRate" /></td>
+                <td><input type="text" name="TestRate"</td>
+                <td><input type="hidden" value="@ViewBag.ModuleID" name="ModuleID"</td>
+                <td><input type="hidden" value="@ViewBag.StudentID" name="StudentID"</td>
+                <td><input type="submit" class="btn btn-primary" value="Підтвердити"</td>
+                <td></td>
+            </tr>
+        </table>
+        </form>
+</div>

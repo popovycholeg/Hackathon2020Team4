@@ -1,0 +1,36 @@
+﻿@{
+    ViewData["Title"] = "RateStudent";
+}
+
+<h1>Студенти</h1>
+<div>
+    <table>
+        <tr>
+            <th><p>ID</p></th>
+            <th><p>Прізвище</p></th>
+            <th><p>Імя</p></th>
+            <th><p>Заклад</p></th>
+            <th><p>Факультет</p></th>
+            <th><p>Курс</p></th>
+            <th><p>Зарахування</p></th>
+        </tr>
+        @foreach (var st in ViewBag.Students)
+        {
+            <form method="get" action="Rate">
+                <tr>
+                    <td><p>@st.ID</p></td>
+                    <td><p>@st.User.LastName</p></td>
+                    <td><p>@st.User.FirstMidName</p></td>
+                    <td><p>@st.Institution</p></td>
+                    <td><p>@st.Faculty</p></td>
+                    <td><p>@st.InstitutionCourse</p></td>
+                    <td><p>@st.EnrollmentDate</p></td>
+                    <td><input type="hidden" value="@ViewBag.ModuleID" name="ModuleID" /> </td>
+                    <td><input type="hidden" value="@st.ID" name="StudentID" /></td>
+                    <td><input type="submit" class="btn btn-primary" value="Вибрати" /></td>
+                </tr>
+            </form>
+        }
+    </table>
+</div>
+
