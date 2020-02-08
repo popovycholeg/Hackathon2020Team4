@@ -60,7 +60,7 @@ namespace Hackathon2020Team4.Controllers
 
         // POST: Courses/Create
         [HttpPost]
-        public ActionResult Create([Bind("ID,Title,StartDate,EndDate,InstructorID")] Course course)
+        public ActionResult Create([Bind("ID,Title,StartDate,EndDate,ImageUrl,InstructorID")] Course course)
         {
             if (ModelState.IsValid)
             {
@@ -96,7 +96,7 @@ namespace Hackathon2020Team4.Controllers
         // POST: Course/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind("ID,Title,StartDate,EndDate,InstructorID")] Course course)
+        public ActionResult Edit([Bind("ID,Title,StartDate,EndDate,ImageUrl,InstructorID")] Course course)
         {
             if (ModelState.IsValid)
             {
