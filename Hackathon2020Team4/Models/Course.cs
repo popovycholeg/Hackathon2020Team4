@@ -22,6 +22,8 @@ namespace Hackathon2020Team4.Models
         [DataType(DataType.Date)]
         public DateTime EndDate { get; set; }
 
+        public string ImageUrl { get; set; }
+
         public ICollection<Enrollment> Enrollments { get; set; }
         public ICollection<Module> Modules { get; set; }
 
