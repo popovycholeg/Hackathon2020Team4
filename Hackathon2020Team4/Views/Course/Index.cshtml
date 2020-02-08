@@ -1,4 +1,7 @@
 ﻿@model IEnumerable<Hackathon2020Team4.Models.Course>
+@using Microsoft.AspNetCore.Identity
+@using Hackathon2020Team4.Data
+@inject UserManager<ApplicationUser> UserManager
 
 @{
     ViewBag.Title = "Курси";
@@ -6,9 +9,12 @@
 
 <h2>Усі курси</h2>
 
-<p>
-    @Html.ActionLink("Створити новий", "Create")
-</p>
+@if (User.IsInRole("admin") || User.IsInRole("instructor"))
+{
+    <p>
+        @Html.ActionLink("Створити новий", "Create")
+    </p>
+}
 <table class="table">
     <tr>
         <th>
@@ -42,9 +48,16 @@
                 @Html.DisplayFor(modelItem => item.EndDate)
             </td>
             <td>
-                @Html.ActionLink("Редагувати", "Edit", new { id = item.ID }) |
-                @Html.ActionLink("Деталі", "Details", new { id = item.ID }) |
-                @Html.ActionLink("Видалити", "Delete", new { id = item.ID })
+                @if (User.IsInRole("admin") || User.IsInRole("instructor"))
+                {
+                    @Html.ActionLink("Редагувати", "Edit", new { id = item.ID }) @:|
+                }
+                @Html.ActionLink("Деталі", "Details", new { id = item.ID })
+                @if (User.IsInRole("admin") || User.IsInRole("instructor"))
+                {
+                    @:| @Html.ActionLink("Видалити", "Delete", new { id = item.ID })
+                }
+
             </td>
         </tr>
     }

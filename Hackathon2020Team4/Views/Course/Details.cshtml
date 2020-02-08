@@ -1,8 +1,35 @@
-﻿
+﻿@model Hackathon2020Team4.Models.Course
+
 @{
-    ViewData["Title"] = "Details";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Курс " + Model.Title;
 }
 
-<h1>Details</h1>
+<div class="text-center">
+    <h1 class="display-4">Інформація про курс</h1>
+</div>
+
+<div class="section-card">
+    <div class="section-title">
+        <h2 class="display-4">@Html.DisplayFor(item => Model.Title)</h2>
+    </div>
+    <div class="section-content">
+        @*<h3>@Model.Details</h3>*@
+        <h3>Продовжуваність курсу @Html.DisplayFor(item => Model.StartDate) - @Html.DisplayFor(item => Model.EndDate)</h3>
+        <h3>Викладач: @Html.DisplayFor(item => Model.Instructor.User.LastName) @Html.DisplayFor(item => Model.Instructor.User.FirstMidName)</h3>
+    </div>
+</div>
+
+<div class="section-card">
+    <div class="section-title">
+        <h2 class="display-4">Модулі</h2>
+    </div>
+    <div class="section-content">
+        <div class="list-group text-center">
+            @foreach (var item in Model.Modules)
+            {
+            <a class="list-group-item list-group-item-action">@Html.DisplayFor(moduleItem => item.ID). @Html.DisplayFor(moduleItem => item.Title)</a>
+            }
+        </div>
+    </div>
+</div>
 

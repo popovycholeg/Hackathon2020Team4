@@ -14,6 +14,10 @@ namespace Hackathon2020Team4.Models
         [DisplayName("Назва")]
         public string Title { get; set; }
 
+        // [DisplayName("Деталі")]
+        // public string Details { get; set; }
+
+
         [DisplayName("Дата початку")]
         [DataType(DataType.Date)]
         public DateTime StartDate { get; set; }

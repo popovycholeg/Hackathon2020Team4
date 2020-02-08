@@ -13,7 +13,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace Hackathon2020Team4.Controllers
 {
-    [Authorize(Roles = "admin, instructor")]
+    [Authorize(Roles = "admin, instructor, student")]
     public class CourseController : Controller
     {
         private ApplicationDbContext db;
@@ -38,10 +38,9 @@ namespace Hackathon2020Team4.Controllers
                 return StatusCode(400);
             }
             Course course = db.Courses
+                .Include(c => c.Instructor)
+                .Include(c => c.Instructor.User)
                 .Include(c => c.Modules)
-                .Include(c => c.Enrollments)
-                .Include(c => c.Enrollments.Select(e => e.Student))
-                .Include(c => c.Enrollments.Select(e => e.Student.User))
                 .FirstOrDefault(c => c.ID == id);
             if (course == null)
             {
@@ -51,6 +50,7 @@ namespace Hackathon2020Team4.Controllers
         }
 
         // GET: Courses/Create
+        [Authorize(Roles = "admin, instructor")]
         public ActionResult Create()
         {
             List<Instructor> instructors = db.Instructors.Include(i => i.User).ToList();
@@ -60,6 +60,7 @@ namespace Hackathon2020Team4.Controllers
 
         // POST: Courses/Create
         [HttpPost]
+        [Authorize(Roles = "admin, instructor")]
         public ActionResult Create([Bind("ID,Title,StartDate,EndDate,ImageUrl,InstructorID")] Course course)
         {
             if (ModelState.IsValid)
@@ -74,6 +75,7 @@ namespace Hackathon2020Team4.Controllers
         }
 
         // GET: Courses/Edit/5
+        [Authorize(Roles = "admin, instructor")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -96,6 +98,7 @@ namespace Hackathon2020Team4.Controllers
         // POST: Course/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "admin, instructor")]
         public ActionResult Edit([Bind("ID,Title,StartDate,EndDate,ImageUrl,InstructorID")] Course course)
         {
             if (ModelState.IsValid)
@@ -110,6 +113,7 @@ namespace Hackathon2020Team4.Controllers
         }
 
         // GET: Courses/Delete/5
+        [Authorize(Roles = "admin, instructor")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -127,6 +131,7 @@ namespace Hackathon2020Team4.Controllers
         // POST: Courses/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "admin, instructor")]
         public ActionResult DeleteConfirmed(int id)
         {
             Course course = db.Courses.Find(id);
