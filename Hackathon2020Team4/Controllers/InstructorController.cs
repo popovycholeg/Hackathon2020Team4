@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -97,7 +97,7 @@ namespace Hackathon2020Team4.Controllers
 
             db.ModuleRating.Add(moduleRating);
 
-           // db.SaveChanges();
+            db.SaveChanges();
 
             return Content("Ok");
         }
