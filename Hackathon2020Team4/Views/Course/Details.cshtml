@@ -22,13 +22,56 @@
 <div class="section-card">
     <div class="section-title">
         <h2 class="display-4">Модулі</h2>
+        @if (User.IsInRole("admin") || User.IsInRole("instructor"))
+        {
+            @Html.ActionLink("Додати модуль", "Create", "Modules", new { id = Model.ID })
+        }
+
     </div>
     <div class="section-content">
         <div class="list-group text-center">
-            @foreach (var item in Model.Modules)
-            {
-            <a class="list-group-item list-group-item-action">@Html.DisplayFor(moduleItem => item.ID). @Html.DisplayFor(moduleItem => item.Title)</a>
-            }
+            <table class="table">
+                <tr>
+                    <th>
+                        Модуль
+                    </th>
+                    <th>
+                        Час заняття
+                    </th>
+                    @if (User.IsInRole("admin") || User.IsInRole("instructor"))
+                    {
+                        <th>
+                            Дії
+                        </th>
+                    }
+                    <th></th>
+                </tr>
+                @foreach (var item in Model.Modules)
+                {
+                    <tr>
+                        <td>
+                            <a class="list-group-item">@*@Html.DisplayFor(moduleItem => item.ID)*@ @Html.DisplayFor(moduleItem => item.Title)</a>
+                        </td>
+                        <td>
+                            <a class="list-group-item list-group-item-action">@*@Html.DisplayFor(moduleItem => item.ID)*@ @Html.DisplayFor(moduleItem => item.DateTimeStart)</a>
+                        </td>
+
+
+                        @if (User.IsInRole("admin") || User.IsInRole("instructor"))
+                        {
+                            <td>
+                                @Html.ActionLink("Додати модуль", "Create", "Modules", new { id = Model.ID })
+                                @Html.ActionLink("Редагувати", "Edit", "Modules", new { id = item.ID })
+                                @Html.ActionLink("Видалити", "Delete", "Modules", new { id = item.ID })
+                            </td>
+                        }
+
+                    </tr>
+
+                }
+
+            </table>
+
         </div>
     </div>
 </div>
